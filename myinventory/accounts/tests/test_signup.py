@@ -7,7 +7,7 @@ from ..forms import SignUpForm
 
 User = get_user_model()
 
-class RegistrationTests(TestCase):
+class SignUpTests(TestCase):
     """Tests for basic registration."""
 
     def setUp(self):
@@ -34,7 +34,7 @@ class RegistrationTests(TestCase):
 
     def test_form_inputs(self):
         """Verifies the amount and types of the input fields."""
-        self.assertContains(self.response, '<input', 4)
+        self.assertContains(self.response, '<input', 4)  # one of the inputs is CSRF
         self.assertContains(self.response, 'type="email"', 1)
         self.assertContains(self.response, 'type="password"', 2)
 
