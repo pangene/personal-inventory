@@ -1,10 +1,13 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import EmailUser
 
-@admin.register(EmailUser)
+from .models import EmailUser
+from .forms import SignUpForm
+
+
 class EmailUserAdmin(UserAdmin):
     model = EmailUser
+    add_form = SignUpForm
     list_display = ('email', 'is_staff', 'is_active',)
     list_filter = ('email', 'is_staff', 'is_active',)
     fieldsets = (
@@ -23,3 +26,5 @@ class EmailUserAdmin(UserAdmin):
     )
     search_fields = ('email',)
     ordering = ('email',)
+
+admin.site.register(EmailUser, EmailUserAdmin)

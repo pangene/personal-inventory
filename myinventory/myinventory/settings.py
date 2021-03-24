@@ -132,3 +132,8 @@ STATICFILES_DIRS = [
 # User model
 
 AUTH_USER_MODEL = 'accounts.EmailUser'
+
+# Accounts stuff
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
