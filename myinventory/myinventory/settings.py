@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'inventory',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +127,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+
+# User model
+
+AUTH_USER_MODEL = 'accounts.EmailUser'

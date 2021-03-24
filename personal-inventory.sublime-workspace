@@ -1,0 +1,1185 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Reac",
+				"ReactDOM"
+			],
+			[
+				"BA",
+				"BASE_DIR〔variable〕"
+			],
+			[
+				"class",
+				"className\tJSX attribute"
+			],
+			[
+				"Na",
+				"NavbarBrand\tclass"
+			],
+			[
+				"Navbar",
+				"NavbarBrand"
+			],
+			[
+				"Nav",
+				"Navbar\tclass"
+			],
+			[
+				"share",
+				"shared_by\tJSX attribute"
+			],
+			[
+				"Isl",
+				"IslandState"
+			],
+			[
+				"Isla",
+				"IslandProps"
+			],
+			[
+				"Island",
+				"IslandProps\tinterface"
+			],
+			[
+				"shared",
+				"shared_by"
+			],
+			[
+				"Isalnd",
+				"IslandSerializer"
+			],
+			[
+				"aut",
+				"auto_now_add"
+			],
+			[
+				"sess",
+				"session_key"
+			],
+			[
+				"as",
+				"as_view"
+			],
+			[
+				"meth",
+				"method_decorator"
+			],
+			[
+				"get",
+				"get_context_data"
+			],
+			[
+				"template",
+				"template_name"
+			],
+			[
+				"Board",
+				"BoardListView"
+			],
+			[
+				"topic",
+				"topic_pk"
+			],
+			[
+				"new_",
+				"new_topic"
+			],
+			[
+				"tem",
+				"template_name"
+			],
+			[
+				"NewT",
+				"NewTopicForm"
+			],
+			[
+				"LOG",
+				"LOGOUT_URL"
+			],
+			[
+				"auth",
+				"auth_login"
+			],
+			[
+				"new_t",
+				"new_topic_url"
+			],
+			[
+				"board",
+				"board_topic_url"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"home",
+				"home_url"
+			],
+			[
+				"boar",
+				"board_topics_url"
+			],
+			[
+				"bao",
+				"board_topics_url"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"Conv",
+				"ConversionVisualizer"
+			],
+			[
+				"binary",
+				"binaryShortcutBlurb"
+			],
+			[
+				"bi",
+				"binaryShortcutSet"
+			],
+			[
+				"no",
+				"noDecimalBlurb"
+			],
+			[
+				"Info",
+				"InfoBlurb"
+			],
+			[
+				"bas",
+				"baseFrom"
+			],
+			[
+				"padd",
+				"padding-bottom\tproperty"
+			],
+			[
+				"bor",
+				"border-radius\tproperty"
+			],
+			[
+				"valid",
+				"validBases"
+			],
+			[
+				"val",
+				"validateBaseChange"
+			],
+			[
+				"va",
+				"validateBaseChange"
+			],
+			[
+				"digit",
+				"digitIndicator"
+			],
+			[
+				"start",
+				"startingValue"
+			],
+			[
+				"bs",
+				"baseTo"
+			],
+			[
+				"equat",
+				"equation"
+			],
+			[
+				"base",
+				"baseTo"
+			],
+			[
+				"fon",
+				"font-size\tproperty"
+			],
+			[
+				"visua",
+				"visualizeToDecimal"
+			],
+			[
+				"eq",
+				"equation"
+			],
+			[
+				"equation",
+				"equationElements"
+			],
+			[
+				"pad",
+				"padding-top\tproperty"
+			],
+			[
+				"ali",
+				"align-items\tproperty"
+			],
+			[
+				"cl",
+				"className"
+			],
+			[
+				"pa",
+				"padding-top\tproperty"
+			],
+			[
+				"ren",
+				"renderToDecimal"
+			],
+			[
+				"star",
+				"startingValue"
+			],
+			[
+				"to",
+				"toString"
+			],
+			[
+				"on",
+				"onValueChange"
+			],
+			[
+				"La",
+				"lastValidValue"
+			],
+			[
+				"baseTo",
+				"baseTo"
+			],
+			[
+				"la",
+				"lastValidValue"
+			],
+			[
+				"hand",
+				"handleValueChange"
+			],
+			[
+				"handle",
+				"handleBaseChange"
+			],
+			[
+				"co",
+				"constructor"
+			],
+			[
+				"handl",
+				"handleValueChange"
+			],
+			[
+				"handleBase",
+				"handleBaseFromChange"
+			],
+			[
+				"han",
+				"handleValueChange"
+			],
+			[
+				"pl",
+				"placeholderBase"
+			],
+			[
+				"pla",
+				"placeholderValue"
+			],
+			[
+				"place",
+				"placeholderBase"
+			],
+			[
+				"def",
+				"defaultValue"
+			],
+			[
+				"plac",
+				"placeholderBase"
+			],
+			[
+				"palc",
+				"placeholderBase"
+			],
+			[
+				"tex",
+				"text-align\tproperty"
+			],
+			[
+				"al",
+				"align-items\tproperty"
+			],
+			[
+				"mar",
+				"margin\tproperty"
+			],
+			[
+				"bo",
+				"border\tproperty"
+			],
+			[
+				"b",
+				"border\tproperty"
+			],
+			[
+				"fo",
+				"font-size\tproperty"
+			],
+			[
+				"marg",
+				"margin-left\tproperty"
+			],
+			[
+				"in",
+				"inline-block\tdisplay"
+			],
+			[
+				"fl",
+				"float\tproperty"
+			],
+			[
+				"li",
+				"line-height\tproperty"
+			],
+			[
+				"wid",
+				"width\tproperty"
+			],
+			[
+				"paddlef",
+				"padding-left\tproperty"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"alig",
+				"align-self\tproperty"
+			],
+			[
+				"te",
+				"text-align\tproperty"
+			],
+			[
+				"for",
+				"for\tfor (…) {…}"
+			],
+			[
+				"password",
+				"password"
+			],
+			[
+				"array",
+				"array_equal"
+			],
+			[
+				"orig",
+				"orig_img_list"
+			],
+			[
+				"cate",
+				"category"
+			],
+			[
+				"categor",
+				"categories"
+			],
+			[
+				"test",
+				"test_images"
+			],
+			[
+				"Simil",
+				"similarity_score"
+			],
+			[
+				"ca",
+				"category"
+			],
+			[
+				"s",
+				"similarity_score"
+			],
+			[
+				"simi",
+				"similarity_func"
+			],
+			[
+				"tes",
+				"test_images"
+			],
+			[
+				"img",
+				"img_list"
+			],
+			[
+				"set",
+				"setLevel"
+			],
+			[
+				"post",
+				"post_num"
+			],
+			[
+				"su",
+				"submission"
+			],
+			[
+				"MSE",
+				"MSE_CUTOFF"
+			],
+			[
+				"similar",
+				"similarity_score"
+			],
+			[
+				"comp",
+				"compare_images"
+			],
+			[
+				"simil",
+				"similarity_score"
+			],
+			[
+				"HASH",
+				"HASH_CUTOFF"
+			],
+			[
+				"sim",
+				"similarity_score"
+			],
+			[
+				"image",
+				"image_paths"
+			],
+			[
+				"min",
+				"min_shape"
+			],
+			[
+				"show",
+				"show_images"
+			],
+			[
+				"path",
+				"path_img_folder"
+			],
+			[
+				"MI",
+				"MIN_HEIGHT"
+			],
+			[
+				"MIN",
+				"MIN_WIDTH"
+			],
+			[
+				"M",
+				"MIN_HEIGHT"
+			],
+			[
+				"dia",
+				"dialogue_frm"
+			],
+			[
+				"curr",
+				"curr_creature_type"
+			],
+			[
+				"curr_",
+				"curr_version"
+			],
+			[
+				"type_bu",
+				"type_button"
+			],
+			[
+				"crea",
+				"Creature"
+			],
+			[
+				"VERSI",
+				"VERSIONS_NO_SEA_CREATURES"
+			],
+			[
+				"B",
+				"BLURB_COLOR"
+			],
+			[
+				"Bl",
+				"BLURB_COLOR"
+			],
+			[
+				"ty",
+				"type_frm"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "myinventory/inventory/models.py",
+			"settings":
+			{
+				"buffer_size": 343,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "myinventory/templates/base.html",
+			"settings":
+			{
+				"buffer_size": 1523,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "myinventory/myinventory/settings.py",
+			"settings":
+			{
+				"buffer_size": 3205,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "myinventory/accounts/models.py",
+			"settings":
+			{
+				"buffer_size": 262,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "myinventory/accounts/admin.py",
+			"settings":
+			{
+				"buffer_size": 144,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "personal-inventory.sublime-project",
+			"settings":
+			{
+				"buffer_size": 201,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"js",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"dja",
+				"Set Syntax: HTML (Django)"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"react",
+				"Set Syntax: TypeScriptReact"
+			],
+			[
+				"djan",
+				"Set Syntax: Python (Django)"
+			],
+			[
+				"typ",
+				"Set Syntax: TypeScriptReact"
+			],
+			[
+				"ter",
+				"Terminus: Close All"
+			],
+			[
+				"djang",
+				"Set Syntax: HTML (Django)"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"lint",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"ints",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"te",
+				"Terminus: Toggle Panel"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"k",
+				"Preferences: Key Bindings"
+			],
+			[
+				"prefe",
+				"Preferences: Settings"
+			],
+			[
+				"term",
+				"Preferences: Terminus Key Bindings"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"t",
+				"Terminus: Toggle Panel"
+			],
+			[
+				"scheme",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"side",
+				"View: Toggle Side Bar"
+			],
+			[
+				"termi",
+				"Terminus: Toggle Panel"
+			],
+			[
+				"settings",
+				"Preferences: Settings"
+			],
+			[
+				"tinta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 242.0,
+		"history":
+		[
+			"test",
+			"fs",
+			"test",
+			"trs'",
+			"exit()",
+			"os.getcwd()",
+			"import os",
+			"import sys",
+			"git",
+			"exit()",
+			"ls"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/genepan/Desktop/Projects/personal-inventory/myinventory"
+	],
+	"file_history":
+	[
+		"/Users/genepan/Desktop/Projects/personal-inventory/myinventory/templates/home.html",
+		"/Users/genepan/Desktop/Projects/personal-inventory/myinventory/templates/nav.html",
+		"/Users/genepan/Desktop/Projects/personal-inventory/myinventory/frontend/App.js",
+		"/Users/genepan/Desktop/Projects/personal-inventory/myinventory/frontend/index.js",
+		"/Users/genepan/Desktop/Projects/personal-inventory/myinventory/static/index-bundle.js",
+		"/Users/genepan/Desktop/Projects/personal-inventory/myinventory/myinventory/urls.py",
+		"/Users/genepan/Desktop/Projects/personal-inventory/myinventory/myinventory/settings.py",
+		"/Users/genepan/Desktop/Projects/personal-inventory/myinventory/webpack.config.js",
+		"/Users/genepan/Desktop/Projects/personal-inventory/myinventory/templates/hello_webpack.html",
+		"/Users/genepan/Desktop/Projects/personal-inventory/myinventory/package.json",
+		"/Users/genepan/.zshrc",
+		"/Users/genepan/.gitignore",
+		"/Users/genepan/Desktop/Projects/acnh-island-share/frontend/src/App.tsx",
+		"/Users/genepan/Desktop/Projects/acnh-island-share/frontend/src/index.tsx",
+		"/Users/genepan/Desktop/Projects/acnh-island-share/frontend/public/manifest.json",
+		"/Users/genepan/Desktop/Projects/acnh-island-share/backend/backend/settings.py",
+		"/Users/genepan/Desktop/Projects/acnh-island-share/backend/backend/urls.py",
+		"/Users/genepan/Desktop/Projects/acnh-island-share/backend/islands/urls.py",
+		"/Users/genepan/Desktop/Projects/acnh-island-share/backend/islands/views.py",
+		"/Users/genepan/Desktop/Projects/acnh-island-share/backend/.coverage",
+		"/Users/genepan/Desktop/Projects/acnh-island-share/backend/islands/admin.py",
+		"/Users/genepan/Desktop/Projects/acnh-island-share/backend/islands/tests.py",
+		"/Users/genepan/Desktop/Projects/acnh-island-share/ac-island-share.sublime-project",
+		"/Users/genepan/.oh-my-zsh/themes/ysvenv.zsh-theme",
+		"/Users/genepan/.oh-my-zsh/themes/ysvenv.zshtheme",
+		"/Users/genepan/Desktop/cs61b/sp21-s283/lab8/speedTestResults.txt",
+		"/Users/genepan/Desktop/cs61b/sp21-s283/.git/MERGE_MSG",
+		"/Users/genepan/Desktop/cs61b/sp21-s283/proj2/gitlet-design.md",
+		"/Users/genepan/Desktop/cs61b/test.java",
+		"/Users/genepan/Desktop/cs61b/test.py",
+		"/Users/genepan/Desktop/test/.git/index",
+		"/Users/genepan/Desktop/cs61b/sp21-s283/proj2/testing/informal_tests/.gitlet/staging_area",
+		"/Users/genepan/Desktop/cs61b/sp21-s283/proj2/testing/runner.py",
+		"/Users/genepan/Desktop/cs61b/sp21-s283/proj2/testing/informal_tests/notwug.txt",
+		"/Users/genepan/Desktop/cs61b/sp21-s283/proj2/testing/src/s_src/stest02-staging_area_1.txt",
+		"/Users/genepan/Desktop/cs61b/sp21-s283/proj2/testing/student_tests/test00-basic_fails.in",
+		"/Users/genepan/Desktop/cs61b/sp21-s283/proj2/testing/informal_tests/.gitlet/HEAD.txt",
+		"/Users/genepan/Desktop/cs61b/sp21-s283/proj2/gitlet_design_doc.txt",
+		"/Users/genepan/Desktop/Learning/django/requirements.txt",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/reply_topic.html",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/tests/test_view_reply_topic.py",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/topic_posts.html",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/views.py",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/includes/pagination.html",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/models.py",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/topics.html",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/templatetags/gravatar.py",
+		"/Users/genepan/Desktop/Learning/django/backend/backend/settings.py",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/my_account.html",
+		"/Users/genepan/Desktop/Learning/django/backend/accounts/views.py",
+		"/Users/genepan/Desktop/Learning/django/backend/backend/urls.py",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/templatetags/form_tags.py",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/base.html",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/edit_post.html",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/includes/form.html",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/home.html",
+		"/Users/genepan/Desktop/Learning/django/backend/accounts/forms.py",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/tests/test_view_topic_posts.py",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/pagination.html",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/tests/test_view_board_topics.py",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/tests/test_view_home.py",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/tests/test_view_edit_post.py",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/admin.py",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/tests/test_view_new_topic.py",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/forms.py",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/new_topic.html",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/login.html",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/tests/test_views.py",
+		"/Users/genepan/Desktop/Learning/django/backend/accounts/tests/test_view_password_reset.py",
+		"/Users/genepan/Desktop/Learning/django/backend/accounts/tests/test_view_password_change.py",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/password_change_done.html",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/password_change.html",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/password_reset_confirm.html",
+		"/Users/genepan/Desktop/Learning/django/backend/accounts/tests/test_mail_password_reset.py",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/password_reset_complete.html",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/password_reset_done.html",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/password_reset.html",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/password_reset_email.html",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/password_reset_subject.txt",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/tests/test_templatetags.py",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/tests/__init__.py",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/templatetags/__init__.py",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/base_accounts.html",
+		"/Users/genepan/Desktop/Learning/django/backend/templates/signup.html",
+		"/Users/genepan/Desktop/Learning/django/backend/accounts/tests/test_form_signup.py",
+		"/Users/genepan/Desktop/Learning/django/backend/static/css/accounts.css",
+		"/Users/genepan/Desktop/Learning/django/backend/static/css/app.css",
+		"/Users/genepan/Desktop/Learning/django/backend/static/img/y-so-serious-white.png",
+		"/Users/genepan/Desktop/Learning/django/backend/accounts/tests/__init__.py",
+		"/Users/genepan/Desktop/Learning/django/backend/accounts/tests/test_view_signup.py",
+		"/Users/genepan/Desktop/Learning/django/backend/accounts/tests.py",
+		"/Users/genepan/Desktop/Learning/django/backend/boards/tests.py",
+		"/Users/genepan/Library/Application Support/Sublime Text 3/Packages/Djaneiro/Settings/HTML (Django).sublime-settings",
+		"/Users/genepan/Desktop/cs61b/sp21-s283/lab2/pom.xml",
+		"/Users/genepan/Desktop/cs61b/sp21-s283/lab2setup/pom.xml",
+		"/Users/genepan/Desktop/cs61b/sp21-s283/library-sp21/javalib/masterpom.xml",
+		"/Users/genepan/temp/HelloWorld.java",
+		"/Users/genepan/Desktop/Projects/number-base-converter/src/App.js",
+		"/Users/genepan/Desktop/Projects/number-base-converter/package.json",
+		"/Users/genepan/Desktop/Projects/number-base-converter/src/index.css",
+		"/Users/genepan/Desktop/Projects/number-base-converter/src/App.css",
+		"/Users/genepan/Desktop/Projects/number-base-converter/public/manifest.json",
+		"/Users/genepan/Desktop/Projects/number-base-converter/src/ConversionVisualizer.js",
+		"/Users/genepan/Desktop/Projects/number-base-converter/src/NumberBaseInput.js",
+		"/Users/genepan/Desktop/Projects/number-base-converter/src/InfoBlurb.js",
+		"/Users/genepan/Desktop/Projects/number-base-converter/public/index.html",
+		"/Users/genepan/Desktop/Projects/number-base-converter/src/index.js",
+		"/Users/genepan/Desktop/Projects/number-base-converter/node_modules/@babel/runtime-corejs3/helpers/classPrivateFieldDestructureSet.js",
+		"/Users/genepan/Desktop/Projects/site-personal/resume.html",
+		"/Users/genepan/Library/Application Support/Sublime Text 3/Packages/ESLint/ESLint.sublime-settings",
+		"/Users/genepan/Library/Application Support/Sublime Text 3/Packages/User/ESLint.sublime-settings",
+		"/Users/genepan/Desktop/Learning/javascript/index.html",
+		"/Users/genepan/Desktop/Projects/reddit-img-classifier/showcase/README.md",
+		"/Users/genepan/Desktop/Projects/reddit-img-classifier/README.md",
+		"/Users/genepan/Desktop/Projects/reddit-img-classifier/.git/COMMIT_EDITMSG",
+		"/Users/genepan/Desktop/Projects/reddit-img-classifier/.gitignore",
+		"/Users/genepan/Desktop/Projects/reddit-img-classifier/praw.ini",
+		"/Users/genepan/.gitconfig",
+		"/Users/genepan/Desktop/Projects/reddit-img-classifier/img-compare.py",
+		"/Users/genepan/Desktop/Projects/blathers-talkbot-py/readme.MD",
+		"/Users/genepan/Desktop/Projects/blathers-talkbot-py/.git/COMMIT_EDITMSG",
+		"/Users/genepan/Desktop/Projects/blathers-talkbot-py/requirements.txt",
+		"/Users/genepan/Desktop/Projects/blathers-talkbot-py/dialogue-creator.sql",
+		"/Users/genepan/Desktop/Projects/blathers-talkbot-py/test.py",
+		"/Users/genepan/Desktop/Projects/blathers-talkbot-py/gui-blathers.py",
+		"/Users/genepan/Desktop/Projects/acwiki-scraper/scraper.py",
+		"/Users/genepan/Desktop/Projects/acwiki-scraper/README.md",
+		"/Users/genepan/Desktop/Projects/acwiki-scraper/requirements.txt"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"body",
+			"content"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "myinventory/inventory/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 343,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								343,
+								343
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "myinventory/templates/base.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1523,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1156,
+								1156
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"open_with_edit": true,
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "myinventory/myinventory/settings.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3205,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3205,
+								3205
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "myinventory/accounts/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 262,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								234,
+								234
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "myinventory/accounts/admin.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 144,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								143,
+								143
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "personal-inventory.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 201,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								181,
+								181
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.Terminus":
+	{
+		"height": 276.0
+	},
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "personal-inventory.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"hw05.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 592.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 167.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
