@@ -1,5 +1,6 @@
 from django.test import TestCase
-from .models import EmailUser
+
+from ..models import EmailUser
 
 class EmailUserManagerTests(TestCase):
     """Tests the custom email user manager."""
