@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.urls import reverse, resolve
 from django.contrib.auth import get_user_model
 
-from ..views import signup
+from ..views import SignUpView
 from ..forms import SignUpForm
 
 User = get_user_model()
@@ -21,7 +21,7 @@ class SignUpTests(TestCase):
     def test_register_url_resolves_signup_view(self):
         """Tests that the register url resolves to the correct view."""
         view = resolve('/accounts/register/')
-        self.assertEqual(view.func, signup)
+        self.assertEqual(view.func.view_class, SignUpView)
 
     def test_csrf(self):
         """Tests a CSRF token exists on the form."""

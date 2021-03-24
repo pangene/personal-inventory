@@ -15,9 +15,8 @@
               {{ user.email }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Change Email</a></li>
-              <li><a class="dropdown-item" href="#">Change Password</a></li>
-              <li><a class="dropdown-item" href="accounts/logout/">Sign out</a></li>
+              <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Sign out</a></li>
             </ul>
           </li>
         {% else %}

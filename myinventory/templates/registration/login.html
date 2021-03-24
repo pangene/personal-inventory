@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block body %}
+{% block content %}
   <h1>Sign in</h1>
   <form action="{% url 'login' %}" method="post">
     {% csrf_token %}
@@ -8,4 +8,4 @@
     <button type="submit" id="submit">Login</button>
   </form>
   Forgot password? Click <a href="{% url 'password_reset' %}">here</a> to reset.
-{% endblock body %}
+{% endblock content %}
