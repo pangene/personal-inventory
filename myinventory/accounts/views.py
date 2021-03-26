@@ -5,7 +5,7 @@ from django.views.generic import TemplateView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
-from .forms import SignUpForm
+from .forms import SignUpForm, PasswordVerificationForm
 
 
 class SignUpView(FormView):
@@ -27,17 +27,27 @@ class ProfileView(TemplateView):
 
 
 @method_decorator(login_required, name='dispatch')
-class DeleteConfirmView(TemplateView):
+class DeleteConfirmView(FormView):
     """View to confirm deletion."""
     template_name = 'registration/delete_confirm.html'
+    form_class = PasswordVerificationForm
+    success_url = '/accounts/delete_done/'
 
-class DeleteView(TemplateView):
-    """View that deletes user account and immediately redirects to home."""
+    def get_form_kwargs(self):
+        """Passes user into form for validation."""
+        kwargs = super(DeleteConfirmView, self).get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
+    def form_valid(self, form):  # Password verification in forms
+        return redirect('delete')
+        
+
+@login_required
+def deleteView(request):
+    """View that deletes user account."""
     template_name = 'registration/delete.html'
-
-    def get_context_data(self, **kwargs):
-        self.request.user.is_active = False
-        self.request.user.save()
-        logout(self.request)
-
-
+    request.user.is_active = False
+    request.user.save()
+    logout(request)
+    return render(request, template_name)

@@ -1,7 +1,6 @@
 from django.test import TestCase
 from django.urls import reverse, resolve
 from django.contrib.auth import get_user_model, views
-from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.forms import PasswordResetForm, SetPasswordForm
 from django.core import mail
 from django.utils.http import urlsafe_base64_encode
