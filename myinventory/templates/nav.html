@@ -8,7 +8,7 @@
       <ul class="navbar-nav ms-auto">
         {% if user.is_authenticated %}
           <li class="nav-item px-3">
-            <a class="nav-link" href="#">Inventory</a>
+            <a class="nav-link" href="{% url 'inventory' %}">Inventory</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

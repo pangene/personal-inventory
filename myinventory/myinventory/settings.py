@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Third Party
+    'taggit',
+
+    # Mine
     'inventory',
     'accounts',
 ]
@@ -129,12 +133,14 @@ STATICFILES_DIRS = [
 ]
 
 
-# User model
-
-AUTH_USER_MODEL = 'accounts.EmailUser'
-
 # Accounts stuff
 
+AUTH_USER_MODEL = 'accounts.EmailUser'  # user model
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+# Taggit config
+
+TAGGIT_CASE_INSENSITIVE = True

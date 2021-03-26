@@ -23,7 +23,7 @@ class SignUpView(FormView):
 @method_decorator(login_required, name='dispatch')
 class ProfileView(TemplateView):
     """View for the account profile."""
-    template_name = 'profile.html'
+    template_name = 'registration/profile.html'
 
 
 @method_decorator(login_required, name='dispatch')
