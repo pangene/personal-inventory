@@ -6,7 +6,7 @@ from .models import Item
 
 class ItemListView(ListView):
     model = Item
-    paginate_by = 25
+    paginate_by = 15
 
     def get_queryset(self):
         """Filter to only items associated with user."""

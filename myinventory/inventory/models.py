@@ -12,4 +12,5 @@ class Item(models.Model):
     )
     name = models.CharField(max_length=100)
     upc = models.CharField(max_length=12, null=True)
+    date_added = models.DateField(auto_now_add=True)
     tags = TaggableManager()

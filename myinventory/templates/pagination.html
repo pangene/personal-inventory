@@ -1,0 +1,66 @@
+{# For all arrows: disables if at end of table. #}
+
+<div class="pagination d-flex justify-content-center">
+  <span class="step-links">
+    <a href="?page=1" class="btn 
+        {% if page_obj.has_previous %}
+          btn-outline-primary
+        {% else %}
+          btn-outline-secondary disabled
+        {% endif %}
+        ">
+      &laquo; first
+    </a>
+    {# For prev and next, sets the internal next page to 1, although it's unclickable anyways. Django will error otherwise. #}
+    <a 
+      href="?page=
+        {% if page_obj.has_previous %}
+          {{ page_obj.previous_page_number }}
+        {% else %}
+          1
+        {% endif %}
+      " 
+      class="btn 
+        {% if page_obj.has_previous %}
+          btn-outline-primary
+        {% else %}
+          btn-outline-secondary disabled
+        {% endif %}
+        ">
+      previous
+    </a>
+
+    <span class="current">
+      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+    </span>
+
+    {% if page_obj.has_next %}
+    {% endif %}
+    <a href="?page=
+        {% if page_obj.has_next %}
+          {{ page_obj.next_page_number }}
+        {% else %}
+          {{ page_obj.paginator.num_pages }}
+        {% endif %}
+      " 
+      class="btn 
+        {% if page_obj.has_next %}
+          btn-outline-primary
+        {% else %}
+          btn-outline-secondary disabled
+        {% endif %}
+        ">
+      next
+    </a>
+    <a href="?page={{ page_obj.paginator.num_pages }}" 
+      class="btn 
+        {% if page_obj.has_next %}
+          btn-outline-primary
+        {% else %}
+          btn-outline-secondary disabled
+        {% endif %}
+        ">
+      last &raquo;
+    </a>
+  </span>
+</div>
