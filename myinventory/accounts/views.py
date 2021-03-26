@@ -35,19 +35,14 @@ class DeleteConfirmView(FormView):
 
     def get_form_kwargs(self):
         """Passes user into form for validation."""
-        kwargs = super(DeleteConfirmView, self).get_form_kwargs()
+        kwargs = super().get_form_kwargs()
         kwargs['user'] = self.request.user
         return kwargs
 
     def form_valid(self, form):  # Password verification in forms
-        return redirect('delete')
-        
+        return redirect('delete_done')
+ 
 
-@login_required
-def deleteView(request):
-    """View that deletes user account."""
+class DeleteDoneView(TemplateView):
+    """View after successful account deletion"""
     template_name = 'registration/delete.html'
-    request.user.is_active = False
-    request.user.save()
-    logout(request)
-    return render(request, template_name)

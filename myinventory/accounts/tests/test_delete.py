@@ -3,7 +3,7 @@ from django.urls import reverse, resolve
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 
-from ..views import deleteView, DeleteConfirmView
+from ..views import DeleteDoneView, DeleteConfirmView
 
 
 User = get_user_model()
@@ -25,7 +25,7 @@ class DeleteSetup(TestCase):
 
 
 class DeleteConfirmTests(DeleteSetup):
-    """Tests the delete confirmation view."""
+    """Tests the DeleteConfirmView, which actually deletes user."""
 
     def setUp(self):
         super().setUp()
@@ -49,18 +49,27 @@ class DeleteConfirmTests(DeleteSetup):
         self.assertTrue(form.errors)
 
     def test_delete_confirm_valid_password(self):
-        """Should redirect to deletion done page if correct password."""
+        """
+        Should delete user and redirect to deletion 
+        done page if correct password.
+        """
         response = self.client.post(self.url, {'password': self.password})
-        delete_url = reverse('delete')
+        self.user.refresh_from_db()
+        self.assertFalse(self.user.is_active)
+        delete_url = reverse('delete_done')
         self.assertRedirects(response, delete_url)
 
 
-class DeleteTests(DeleteSetup):
-    """Tests user can delete account (internally deactivates)."""
+class DeleteDoneTests(DeleteSetup):
+    """Tests the DeleteDoneView, after deletion."""
 
     def setUp(self):
         super().setUp()
-        url = reverse('delete')
+        # First posts a successful password.
+        confirm_url = reverse('delete_confirm')
+        self.client.post(confirm_url, {'password': self.password})
+        # Then redirects to done page.
+        url = reverse('delete_done')
         self.response = self.client.get(url)
 
     def test_status_code(self):
@@ -70,13 +79,9 @@ class DeleteTests(DeleteSetup):
     def test_delete_url_resolves(self):
         """Delete url should resolve to DeleteView."""
         view = resolve('/accounts/delete_done/')
-        self.assertEqual(view.func, deleteView)
-
-    def test_user_deactivated(self):
-        """User should be deactivated upon arriving at link."""
-        self.user.refresh_from_db()
-        self.assertFalse(self.user.is_active)
+        self.assertEqual(view.func.view_class, DeleteDoneView)
 
     def test_logout_after(self):
+        """Deleted user should be logged out after redirect."""
         user = self.response.context.get('user')
         self.assertIsInstance(user, AnonymousUser)
