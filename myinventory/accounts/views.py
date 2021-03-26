@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.views.generic.edit import FormView
 from django.views.generic import TemplateView
 from django.utils.decorators import method_decorator
@@ -24,3 +24,20 @@ class SignUpView(FormView):
 class ProfileView(TemplateView):
     """View for the account profile."""
     template_name = 'profile.html'
+
+
+@method_decorator(login_required, name='dispatch')
+class DeleteConfirmView(TemplateView):
+    """View to confirm deletion."""
+    template_name = 'registration/delete_confirm.html'
+
+class DeleteView(TemplateView):
+    """View that deletes user account and immediately redirects to home."""
+    template_name = 'registration/delete.html'
+
+    def get_context_data(self, **kwargs):
+        self.request.user.is_active = False
+        self.request.user.save()
+        logout(self.request)
+
+
