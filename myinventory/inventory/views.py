@@ -9,6 +9,12 @@ class ItemListView(ListView):
     paginate_by = 15
 
     def get_queryset(self):
-        """Filter to only items associated with user."""
+        """Filter based off user and search parameters."""
+        # Filter off user
         queryset = Item.objects.filter(user=self.request.user)
+
+        # Filter off search params
+        query = self.request.GET.get('q')
+        if query:
+            queryset = queryset.filter(name__icontains=query)
         return queryset

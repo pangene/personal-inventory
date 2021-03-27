@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <form method='GET' class="py-2">
+    <input type="search" name="q" placeholder="Search" value="{{ request.GET.q }}">
+    <input type="submit" name="search" value="Search">
+  </form>
   <table class="table table-striped mb-4" align="center">
     <thead class="table-dark">
       <tr>
