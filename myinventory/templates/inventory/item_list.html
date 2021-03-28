@@ -1,35 +1,48 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/item_list.css' %}">
+{% endblock styles %}
 
 {% block content %}
   <form method='GET' class="py-2">
-    <input type="search" name="q" placeholder="Search" value="{{ request.GET.q }}">
-    <input type="submit" name="search" value="Search">
+    <input class="search-bar" type="search" name="q" placeholder="Search for the name of an item" value="{{ request.GET.q }}">
+    <input class="search-button" type="submit" name="search" value="Search">
   </form>
-  <table class="table table-striped mb-4" align="center">
-    <thead class="table-dark">
-      <tr>
-        <th width="45%">Name</th>
-        <th>UPC</th>
-        <th>Tags</th>
-        <th>Date Added</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for item in page_obj %}
+  <div id="inventory">
+    <table class="table table-striped mb-4" align="center">
+      <thead class="table-dark">
         <tr>
-          <td>{{ item.name }}</td>
-          <td>{{ item.upc }}</td>
-          <td>
-            {% if item.tags.all %} 
-              {{ item.tags.all }}
-            {% else %}
-              <hr>
-            {% endif %}
-          </td>
-          <td>{{ item.date_added }}</td>
+          <th width="45%">Name</th>
+          <th>UPC</th>
+          <th>Tags</th>
+          <th>Date Added</th>
         </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {% for item in page_obj %}
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>
+              {% if item.upc %}
+                {{ item.upc }}
+              {% else %}
+                <hr>
+              {% endif %}
+            </td>
+            <td>
+              {% if item.tags.all %} 
+                {{ item.tags.all }}
+              {% else %}
+                <hr>
+              {% endif %}
+            </td>
+            <td>{{ item.date_added }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
   {% include "pagination.html" %}
 {% endblock content %}
