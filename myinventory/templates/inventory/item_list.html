@@ -6,9 +6,19 @@
 {% endblock styles %}
 
 {% block content %}
-  <form method='GET' class="py-2">
-    <input class="search-bar" type="search" name="q" placeholder="Search for the name of an item" value="{{ request.GET.q }}">
-    <input class="search-button" type="submit" name="search" value="Search">
+  <form method="GET" class="py-2">
+    <div class="input-group">
+        <input class="form-control" aria-labelledby="Search for the name of an item" type="search" name="q" placeholder="Search for the name of an item" value="{{ request.GET.q }}">
+      <div class="input-group-append">
+        <input class="btn btn-primary" aria-labelledby="Search" type="submit" name="search" value="Search">
+      </div>
+    </div>
+    <div class="input-group py-2">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Tags</span>
+      </div>
+      <input type="search" class="form-control" aria-labelledby="(Optional) Enter tags separated by commas" name="q_tags" placeholder="(Optional) Enter tags separated by commas" value="{{ request.GET.q_tags }}">    
+    </div>
   </form>
   <div id="inventory">
     <table class="table table-striped mb-4" align="center">
@@ -33,7 +43,9 @@
             </td>
             <td>
               {% if item.tags.all %} 
-                {{ item.tags.all }}
+                {% for tag in item.tags.all %}
+                  <a href="#" class="badge bg-secondary">{{ tag }}</a>
+                {% endfor %}
               {% else %}
                 <hr>
               {% endif %}

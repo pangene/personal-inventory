@@ -2,7 +2,9 @@
 {% load static %}
 {% block content %}
   <div id="root"></div>
+{{ user.is_authenticated|json_script:"isLoggedIn" }}
 {% endblock content %}
+
 
 {% block scripts %}
   <script src="{% static 'index-bundle.js' %}"></script>
