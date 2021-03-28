@@ -6,11 +6,11 @@ from taggit.managers import TaggableManager
 User = get_user_model()
 
 class Item(models.Model):
-    user = models.ForeignKey(User, 
-        on_delete=models.CASCADE, 
+    user = models.ForeignKey(User,
+        on_delete=models.CASCADE,
         related_name='items'
     )
     name = models.CharField(max_length=100)
-    upc = models.CharField(max_length=12, null=True)
+    upc = models.CharField(max_length=12, null=True, blank=True)
     date_added = models.DateField(auto_now_add=True)
     tags = TaggableManager()
