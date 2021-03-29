@@ -1,6 +1,7 @@
 /* ----- Utils ----- */
 // Q: Why is this not it's own file?
-// A: It's one function. Not worth it.
+// A: It's one function. Not worth it. But, I'm also unfamiliar with JS, so
+//    maybe this is really bad.
 
 /** Gets a cookie from the document. */
 function getCookie(name) {
@@ -19,6 +20,34 @@ function getCookie(name) {
 }
 
 /* ----- THE API ----- */
+
+/**
+ * Returns a Promise that returns an Item object if it exists.
+ * If it doesn't exist, returns: {"detail": "Not found."}
+ * 
+ * @param  {name: String}
+ * @return {Promise} Promise that returns item object, or returns null if DNE.
+ */
+export const getItem = (name) => {
+  return fetch('/api/items/' + name)
+      .then(res => res.json())
+      .then(res => {
+        if (!res.detail) return res;
+        else return null;
+      });
+}
+
+/**
+ * Returns a Promise that returns an Array of item objects that have their 
+ * names or upcs include the searchParam.
+ * 
+ * @param  {searchParam: String} either name or upc.
+ * @return {Promise} Promise that returns Array of item objects.
+ */
+export const searchItems = (searchParam) => {
+  return fetch('/api/items/?search=' + searchParam)
+    .then(res => res.json());
+}
 
 /**
  * Updates item with any values given in the updatedItem object.
@@ -70,28 +99,4 @@ export const createItem = (newItem) => {
     .catch(error => {
       console.error('Error:', error);
     });
-}
-
-/**
- * Returns a Promise that returns an Array of item objects that have their 
- * names or upcs include the searchParam.
- * 
- * @param  {searchParam: String} either name or upc.
- * @return {Promise} Promise that returns Array of item objects.
- */
-export const searchItems = (searchParam) => {
-  return fetch('/api/items/?search=' + searchParam)
-    .then(res => res.json());
-}
-
-/**
- * Returns a Promise that returns an Item object if it exists.
- * If it doesn't exist, returns: {"detail": "Not found."}
- * 
- * @param  {name: String}
- * @return {Promise} Promise that returns item object
- */
-export const getItem = (name) => {
-  return fetch('/api/items/' + name)
-      .then(res => res.json());
 }
