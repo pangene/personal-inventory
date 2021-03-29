@@ -25,7 +25,7 @@
       <thead class="table-dark">
         <tr>
           <th width="45%">Name</th>
-          <th>UPC</th>
+          <th>Qty</th>
           <th>Tags</th>
           <th>Date Added</th>
         </tr>
@@ -35,11 +35,7 @@
           <tr>
             <td>{{ item.name }}</td>
             <td>
-              {% if item.upc %}
-                {{ item.upc }}
-              {% else %}
-                <hr>
-              {% endif %}
+              {{ item.quantity }}
             </td>
             <td>
               {% if item.tags.all %} 

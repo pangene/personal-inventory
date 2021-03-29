@@ -35,7 +35,7 @@ class ItemViewSet(viewsets.ModelViewSet):
     """Viewset so React frontend can interact with items api."""
     serializer_class = ItemSerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ['name']
+    search_fields = ['name', '=upc']
 
     def get_queryset(self):
         queryset = self.request.user.items.all()

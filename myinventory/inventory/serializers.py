@@ -11,7 +11,7 @@ class ItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Item
-        fields = ('user', 'name', 'upc')
+        fields = ('user', 'name', 'upc', 'quantity')
 
     def create(self, validated_data):
         validated_data['user'] = self.context['request'].user

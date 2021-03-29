@@ -1,22 +1,11 @@
-import React, { useState, useEffect } from 'react'
-
-function getCookie(name) {
-    var cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i].toString().replace(/^([\s]*)|([\s]*)$/g, "");
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-}
+import React, { useState } from 'react'
+import {getItem, searchItems, updateItem, createItem} from '../ItemsApi'
+import '../styles/Search.css'
 
 function Search() {
+  // searchVal always associated w/ name
   const [searchVal, setSearchVal] = useState("");
+  const [upc, setUpc] = useState("");
   const [result, setResult] = useState([]);
   // Item is only considered in the inventory if it is an exact match.
   const [matchExact, setMatchExact] = useState(false);
@@ -30,6 +19,12 @@ function Search() {
     // Checks for exact match
     let match = result.some((e) => e.name === searchVal);
     setMatchExact(match);
+
+    // Updates upc if it exists.
+    // Would be best to find match and upc at same time.
+    if (matchExact) {
+      setUpc(result.find((e) => e.name === searchVal).upc)
+    }
   }
 
   const handleItemLoadFail = (error) => {
@@ -38,11 +33,12 @@ function Search() {
   }
 
   const handleSubmit = (e) => {
-    if (searchVal === "") return;  // 
+    if (searchVal === "") return;  // Empty searchVal probably an accident.
     e.preventDefault();  // Necessary for logging to persist
     setCanAdd(true);
-    fetch('/api/items/?search=' + searchVal)
-      .then(res => res.json())
+
+    // Get all items that match search params (name or upc)
+    searchItems(searchVal)
       .then(
         (result) => {
           handleItemLoadSuccess(result);
@@ -56,17 +52,27 @@ function Search() {
   return (
     <div>
       <form>
-        <input 
-          type="text" 
-          placeholder="Search" 
-          value={searchVal} 
-          onChange={(e) => setSearchVal(e.target.value)}
-        />
-        <input type="submit" value="Submit" onClick={(e) => handleSubmit(e)}/>
+        <div className="input-group mb-3">
+          <input 
+            className="form-control"
+            type="text" 
+            placeholder="Search" 
+            value={searchVal} 
+            onChange={(e) => setSearchVal(e.target.value)}
+          />
+          <div className="input-group-append">
+            <input
+              className="btn btn-outline-secondary"
+              type="submit" 
+              value="Submit" 
+              onClick={(e) => handleSubmit(e)}
+            />
+          </div>
+        </div>
       </form>
       {matchExact && "yep its there"}
       {result.length > 0 && <ResultsDisplay result={result}/>}
-      {canAdd && <AddItem name={searchVal} upc=""/>}
+      {canAdd && <AddItem name={searchVal} upc={upc} />}
     </div>
   )
 }
@@ -88,35 +94,25 @@ function AddItem(props) {
   const [name, setName] = useState(props.name);
   const [upc, setUpc] = useState(props.upc);
 
-  useEffect(() => {
-    // Update the name and upc after initial mount.
-    setName(props.name);
-  });
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Adding item to database.");
 
-    let newItem = {name: name, upc: upc};
-    console.log(newItem);
-
-    fetch('/api/items/', {
-      method: 'POST',
-      credentials: "same-origin",
-      headers: {
-        'X-CSRFToken': getCookie('csrftoken'),
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newItem)
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log('Success:', data);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      })
+    // Get item with the specific name
+    getItem(name)
+      .then(result => {
+        if (!result.detail) {  // result.detail only appears if 404
+          // item already exists, update
+          let updatedItem = {quantity: result.quantity + 1, upc: upc};
+          console.log(updatedItem)
+          updateItem(updatedItem);
+        } else {
+          // item does not exist, create
+          let newItem = {name: name, upc: upc};
+          console.log(newItem);
+          createItem(newItem);
+        }
+      });
   }
 
   return (
