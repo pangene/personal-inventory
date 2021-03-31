@@ -1,11 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Account Deletion</h1>
-  <p>This action is irreversible. If you wish to proceed, please re-enter your password and confirm.</p>
-  <form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Confirm</button>
-  </form>
+  <div class="mx-auto pt-3">
+    <h1 class="mb-4">Account Deletion</h1>
+    <p class="mb-4">This action is <b class="text-danger">irreversible</b>. If you wish to proceed, please re-enter your password and confirm.</p>
+    <form novalidate action="" method="post">
+      {% csrf_token %}
+      <div class="mb-5 row">
+        <label for="password" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control {% if form.password.errors %} is-invalid{% endif %}" name="password">
+          {% for error in form.password.errors %}
+            <div class="invalid-feedback">
+              {{ error }}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <button class="btn btn-danger" type="submit">Delete account</button>
+    </form>
+  </div>
 {% endblock content %}  

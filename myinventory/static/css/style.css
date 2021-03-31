@@ -68,6 +68,11 @@ nav {
   max-width: 500px;
 }
 
+.custom-card {
+  background-color: white; 
+  padding: 20px; 
+  border-radius: 10px;
+}
 
 @media only screen and (max-width: 450px) {
   .giant {
