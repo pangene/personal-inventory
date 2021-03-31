@@ -28,7 +28,7 @@ class Landing extends React.Component {
     return (
       <div className="mx-auto">
         <h1 className="text-center giant pt-100">Do I own</h1>
-        <div className="input-group mx-auto mt-4 max-w-small">
+        <div className="input-group mx-auto mt-4 max-w-medium">
           <div className="form-control underline">
             <span id="typing"></span>
           </div>

@@ -1,11 +1,55 @@
 {% extends "base.html" %}
+{% load static %}
 
+{% block styles %}
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/toastr.min.css' %}" media="all">
+  <script type="text/javascript" src="{% static 'js/toastr.min.js' %}"></script>  
+  <script type="text/javascript">
+    toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": false,
+      "positionClass": "toast-bottom-center",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut",
+    }
+  </script>
+{% endblock styles %}
 {% block content %}
-  <h1>Sign in</h1>
-  <form action="{% url 'login' %}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" id="submit">Login</button>
-  </form>
-  Forgot password? Click <a href="{% url 'password_reset' %}">here</a> to reset.
+
+  <div class="mx-auto text-center pt-100 max-w-small">
+    <h1>Sign in</h1>
+    <form novalidate action="{% url 'login' %}" method="post">
+      {% for error in form.non_field_errors %}
+        <script type="text/javascript">
+          toastr["error"]("{{ error }}");
+        </script>
+      {% endfor %}
+      {% csrf_token %}
+      <div class="py-3">
+        <div class="form-floating">
+          <input type="email" class="form-control" id="id_username" name="username" placeholder="name@example.com">
+          <label for="id_username">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="id_password" name="password" placeholder="Password">
+          <label for="id_password">Password</label>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit" id="submit">Login</button>
+    </form>
+    <p class="text-muted pt-3"> 
+      Forgot password? Click <a href="{% url 'password_reset' %}">here</a> to reset.
+    </p>
+  </div>
 {% endblock content %}

@@ -19,6 +19,11 @@ nav {
   border-color: white;
 }
 
+.border {
+  border: var(--secondary-color) 1px solid;
+  border-radius: 10px;
+}
+
 .giant {
   font-size: 80px;
   font-weight: bold;
@@ -26,7 +31,7 @@ nav {
 }
 
 .pt-100 {
-  padding-top: 150px;
+  padding-top: 130px;
 }
 
 .underline {
@@ -56,12 +61,23 @@ nav {
 }
 
 .max-w-small {
+  max-width: 400px;
+}
+
+.max-w-medium {
   max-width: 500px;
 }
+
 
 @media only screen and (max-width: 450px) {
   .giant {
     font-size: 60px;
     word-spacing: 10px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .border {
+    border: hidden !important;
   }
 }

@@ -20,11 +20,11 @@
             </ul>
           </li>
         {% else %}
-          <li class="nav-item px-3">
-            <a class="nav-link btn btn-outline-primary" href="{% url 'register' %}">Register</a>
+          <li class="nav-item">
+            <a class="nav-link border" href="{% url 'register' %}">Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{% url 'login' %}">Sign in</a>
+            <a class="nav-link" href="{% url 'login' %}">Sign in</a>
           </li>
         {% endif %}
       </ul>

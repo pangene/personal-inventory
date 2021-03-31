@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Profile</h1>
-  <hr>
-  <p>Email: {{ user.email }}</p>
-  <p>Date joined: {{ user.date_joined }}</p>
-  <p><a href="{% url 'password_change' %}">Change password</a></p>
-  <p><a href="{% url 'delete_confirm' %}">Delete account</a></p>
+  <div class="mx-auto mt-5 max-w-medium">
+    <h1>Profile</h1>
+    <hr>
+    <p><b>Email:</b> {{ user.email }}</p>
+    <p><b>Date joined:</b> {{ user.date_joined }}</p>
+    <p><b>Inventory size:</b> {{ user.items.count }} items</p>
+    <p><a href="{% url 'password_change' %}">Change password</a></p>
+    <p><a href="{% url 'delete_confirm' %}">Delete account</a></p> 
+  </div>
 {% endblock content %}
