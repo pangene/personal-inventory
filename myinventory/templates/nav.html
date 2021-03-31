@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<nav class="navbar navbar-expand-sm navbar-dark">
   <div class="container">
     <a class="navbar-brand" href="/">Do I own?</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@
           </li>
         {% else %}
           <li class="nav-item px-3">
-            <a class="nav-link btn btn-outline-secondary" href="{% url 'register' %}">Register</a>
+            <a class="nav-link btn btn-outline-primary" href="{% url 'register' %}">Register</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="{% url 'login' %}">Sign in</a>
