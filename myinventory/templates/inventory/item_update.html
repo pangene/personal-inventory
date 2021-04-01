@@ -14,7 +14,7 @@
           class="form-control {% if field.errors %} is-invalid {% endif %}" 
           name="{{ field.html_name }}"
           value=
-            "{% if field.html_name == 'tags' %}{% for tag in object.tags.all %}{{ tag }}, {% endfor %}{% elif field.html_name == 'upc' %}{% if field.value != 'None' %} {{ field.value }}{% endif %}{% else %}{{ field.value }}{% endif %}"  
+            "{% if field.html_name == 'tags' %}{% for tag in object.tags.all %}{{ tag }}, {% endfor %}{% elif field.html_name == 'upc' %}{% if field.value != null %}{{ field.value }}{% endif %}{% else %}{{ field.value }}{% endif %}"  
         ></input> 
         {# Why the word vomit above? It's the fact that logic in strings includes all spaces and tabs... #}
         {% for error in field.errors %}
@@ -24,8 +24,9 @@
         {% endfor %}
         </div>
       {% endfor %}
-      <input type="submit" value="Update">
+      <input class="btn btn-primary" type="submit" value="Update">
     </form>
+    <a class="btn btn-danger mt-2" href="{% url 'item_delete' pk=object.name %}">Delete</a>
   </div>
 {% endblock content %}
 

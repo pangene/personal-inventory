@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.urls import reverse
+from django.urls import reverse_lazy
 from django.views.generic.list import ListView
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import UpdateView, DeleteView
 from rest_framework import viewsets, filters
 from taggit.forms import TagField
 from django import forms
@@ -41,8 +41,13 @@ class ItemUpdateView(UpdateView):
     template_name_suffix = '_update'
     fields = ['name', 'upc', 'quantity', 'tags']
 
-    def get_success_url(self):
-        return reverse('inventory')
+    success_url = reverse_lazy('inventory')
+
+
+class ItemDeleteView(DeleteView):
+    """Delete view to delete the item."""
+    model = Item
+    success_url = reverse_lazy('inventory')
 
 
 class ItemViewSet(viewsets.ModelViewSet):

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="pt-3">
+    <h1>Confirm Deletion</h1>
+    <p>Are you sure you want to delete the following item?</p>
+    <div class="custom-card mx-auto mt-2">
+      <div class="mb-4 row">
+        <label for="name" class="col-sm-2">Name:</label>
+        <div class="col-sm-8">
+          <span id="name"> {{ object.name }} </span>
+        </div>
+      </div>
+      <div class="mb-4 row">
+        <label for="upc" class="col-sm-2">UPC:</label>
+        <div class="col-sm-8">
+          <span id="upc"> {{ object.upc }} </span>
+        </div>
+      </div>
+      <div class="mb-4 row">
+        <label for="qty" class="col-sm-2">Quantity:</label>
+        <div class="col-sm-8">
+          <span id="qty"> {{ object.quantity }} </span>
+        </div>
+      </div>
+      <div class="mb-1 row">
+        <label for="tags" class="col-sm-2">Tags:</label>
+        <div class="col-sm-8">
+          <span id="tags">
+            {% for tag in object.tags.all %}
+              {{ tag }}, 
+            {% endfor %}
+          </span>
+        </div>
+      </div>
+    </div>
+    <form method="post">
+      {% csrf_token %}
+      <input class="btn btn-primary mt-3" type="submit" value="Confirm">
+    </form>
+  </div>
+{% endblock content %}
