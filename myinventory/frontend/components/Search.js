@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
+import AnimateHeight from 'react-animate-height';
 import { getItem, searchItems, updateItem, createItem } from '../ItemsApi';
 import '../styles/Search.css';
 
 function Search() {
+  // Mount animation setup
+  const [height, setHeight] = useState(0);
+
   // searchVal always associated w/ name
   const [searchVal, setSearchVal] = useState("");
+  // upc for now is unsearchable, but planned to implement soon
   const [upc, setUpc] = useState("");
+  // tags for searched item
   const [tags, setTags] = useState([]);
+  // array of searched item
   const [result, setResult] = useState([]);
   // Item is only considered in the inventory if it is an exact match.
   const [matchExact, setMatchExact] = useState(false);
@@ -38,12 +45,14 @@ function Search() {
     if (searchVal === "") return;  // Empty searchVal probably an accident.
     e.preventDefault();
     setCanDisplay(false);
+    setHeight(0);
     // Get all items that match search params (name or upc)
     searchItems(searchVal)
       .then(
         (result) => {
           handleItemLoadSuccess(result);
           setCanDisplay(true);
+          setTimeout(() => setHeight('auto'), 100);
         },
         (error) => {
           handleItemLoadFail(error);
@@ -51,13 +60,19 @@ function Search() {
       );
   }
 
+  const searchThisItem = (item) => {
+    setSearchVal(item.name);
+    setUpc(item.upc);
+    setTags(item.tags);
+  }
+
   return (
-    <div>
+    <div className="mx-auto max-w-large">
       <div className="mx-auto">
         <h1 className="text-center giant pt-5">Do I own</h1>
       </div>
       <form>
-        <div className="input-group mb-3">
+        <div className="mx-auto max-w-medium input-group mb-3">
           <input 
             className="form-control underline"
             type="text" 
@@ -75,40 +90,32 @@ function Search() {
           </div>
         </div>
       </form>
-      {canDisplay && <Results present={matchExact} result={result}/>}
-      {canDisplay && <AddItem present={matchExact} name={searchVal} upc={upc} tags={tags} />}
-    </div>
-  )
-}
-
-function Results(props) {
-  const present = props.present;
-  const result = props.result;
-
-  // Defaults to item not being present.
-  let foundSomething = false;
-  // Item may be there if search query does return some results.
-  if (result.length) foundSomething = true;
-
-  const resultItems = result.map((item) =>
-    <a 
-      href="#"
-      className="list-group-item list-group-item-action"
-      key={item.name}
+      <AnimateHeight 
+        height={height} 
+        delay={150}
+        duration={300}
       >
-      {item.name} - {item.upc}
-    </a>
-  )
-
-  return (
-    <div className="mb-3">
-      <PresentDisplay present={present} foundSomething={foundSomething}/>
-      <div className="list-group">
-        <a href="#" className="list-group-item disabled">
-          This is what we found:
-        </a>
-        {resultItems}
-      </div>
+        {canDisplay && 
+          (<div>
+            <PresentDisplay 
+              present={matchExact} 
+              foundSomething={result.length} 
+            />
+            <Results 
+              className="float-end" 
+              name={searchVal} 
+              result={result} 
+              search={searchThisItem}
+            />
+            <div className="clr"></div>
+            <AddItem 
+              present={matchExact} 
+              name={searchVal} 
+              upc={upc} 
+              tags={tags} 
+              />
+          </div>)}
+      </AnimateHeight>
     </div>
   )
 }
@@ -118,24 +125,56 @@ function PresentDisplay(props) {
   const foundSomething = props.foundSomething;
   
   let classModifier = "danger";
+  let icon = <i className="far fa-times-circle"></i>;
   let title = "Item is not present!";
   let body = "It doesn't seem like you own this item...";
 
   if (foundSomething) {
-    body += " But, you may own something similar.";
+    body += " But, you may own something similar. Check what we found -->";
   }
 
   if (present) {
     classModifier = "success"; 
+    icon = <i className="far fa-check-circle"></i>;
     title = "Item is present!";
     body = "You already own this!";
   }
 
   return (
-    <div className={"mb-3 card border-" + classModifier}>
+    <div className={"max-h-large left float-start mb-3 card border-" + classModifier}>
       <div className={"card-body text-" + classModifier}>
+        <div className="giant">{icon}</div>
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{body}</p>
+      </div>
+    </div>
+  )
+}
+
+function Results(props) {
+  const result = props.result;
+
+  const resultItems = result.map((item) =>
+    <a 
+      href="#"
+      onClick={() => props.search(item)}
+      className={"list-group-item list-group-item-action" 
+        + (item.name === props.name ? " active" : "")}
+      key={item.name}
+      >
+      {item.name} - Qty: {item.quantity}
+    </a>
+  )
+
+  return (
+    <div className="right mb-3 float-end">
+      <div className="list-group">
+        <a href="#" className="list-group-item disabled">
+          This is what we found:
+        </a>
+        <div className="scrollable max-h-medium">
+          {resultItems}
+        </div>
       </div>
     </div>
   )
@@ -193,7 +232,7 @@ function AddItem(props) {
   }
 
   return (
-    <div className="card">
+    <div className="card float-none" key={props.name}>
       <div className="card-header">
         {heading}
       </div>
@@ -211,18 +250,6 @@ function AddItem(props) {
               onChange={(e) => setName(e.target.value)}
             />
           </div>
-          {/*<div className="input-group input-group-sm mb-3">
-            <div className="input-group-prepend">
-              <span className="input-group-text" id="basic-addon1">UPC</span>
-            </div>
-            <input 
-              className="form-control"
-              type="text" 
-              placeholder="(Optional) Enter a upc for the item you are adding."
-              value={upc} 
-              onChange={(e) => setUpc(e.target.value)}
-            />
-          </div>*/}
           <div className="input-group input-group-sm mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">Tags</span>

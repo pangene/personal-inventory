@@ -68,10 +68,38 @@ nav {
   max-width: 500px;
 }
 
+.max-w-large {
+  max-width: 900px;
+}
+
+.max-h-medium {
+  max-height: 200px;
+}
+
+.max-h-large {
+  height: 245px;
+}
+
+.scrollable {
+  overflow-y: auto;
+}
+
 .custom-card {
   background-color: white; 
   padding: 20px; 
   border-radius: 10px;
+}
+
+.left {
+  width: 49%;
+}
+
+.right {
+  width: 49%;
+}
+
+.clr {
+  clear: both;
 }
 
 @media only screen and (max-width: 450px) {
