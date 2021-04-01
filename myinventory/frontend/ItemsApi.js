@@ -53,10 +53,11 @@ export const searchItems = (searchParam) => {
  * Updates item with any values given in the updatedItem object.
  * 
  * @param  {name: String, quantity: int, user: int, upc: String}
+ * @return {Promise} Promise that returns true if successful, false otherwise.  
  */
 export const updateItem = (updatedItem) => {
   // Patches item with new quantity
-  fetch('/api/items/' + name + '/', {
+  return fetch('/api/items/' + updatedItem.name + '/', {
     method: 'PATCH',
     credentials: "same-origin",
     headers: {
@@ -69,9 +70,11 @@ export const updateItem = (updatedItem) => {
     .then(res => res.json())
     .then(data => {
       console.log('Success:', data);
+      return true;
     })
     .catch(error => {
       console.error('Error:', error);
+      return false;
     });
 }
 
@@ -80,9 +83,10 @@ export const updateItem = (updatedItem) => {
  * Quantity defaults to 1, user defaults to currently logged in.
  * 
  * @param  {name: String, upc: String}
+ * @return {Promise} Promise that returns true if successful, false otherwise.
  */
 export const createItem = (newItem) => {
-  fetch('/api/items/', {
+  return fetch('/api/items/', {
     method: 'POST',
     credentials: "same-origin",
     headers: {
@@ -95,8 +99,10 @@ export const createItem = (newItem) => {
     .then(res => res.json())
     .then(data => {
       console.log('Success:', data);
+      return true;
     })
     .catch(error => {
       console.error('Error:', error);
+      return false;
     });
 }

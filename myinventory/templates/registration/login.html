@@ -1,30 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
 
-{% block styles %}
-  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/toastr.min.css' %}" media="all">
-  <script type="text/javascript" src="{% static 'js/toastr.min.js' %}"></script>  
-  <script type="text/javascript">
-    toastr.options = {
-      "closeButton": true,
-      "debug": false,
-      "newestOnTop": false,
-      "progressBar": false,
-      "positionClass": "toast-bottom-center",
-      "preventDuplicates": false,
-      "onclick": null,
-      "showDuration": "300",
-      "hideDuration": "1000",
-      "timeOut": "5000",
-      "extendedTimeOut": "1000",
-      "showEasing": "swing",
-      "hideEasing": "linear",
-      "showMethod": "fadeIn",
-      "hideMethod": "fadeOut",
-    }
-  </script>
-{% endblock styles %}
 {% block content %}
 
   <div class="mx-auto text-center pt-100 max-w-small">

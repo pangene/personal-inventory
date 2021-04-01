@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import {getItem, searchItems, updateItem, createItem} from '../ItemsApi';
+import { getItem, searchItems, updateItem, createItem } from '../ItemsApi';
 import '../styles/Search.css';
 
 function Search() {
   // searchVal always associated w/ name
   const [searchVal, setSearchVal] = useState("");
   const [upc, setUpc] = useState("");
+  const [tags, setTags] = useState([]);
   const [result, setResult] = useState([]);
   // Item is only considered in the inventory if it is an exact match.
   const [matchExact, setMatchExact] = useState(false);
@@ -13,34 +14,36 @@ function Search() {
   const [canDisplay, setCanDisplay] = useState(false);
 
   const handleItemLoadSuccess = (result) => {
-    console.log(result);
+    console.log("Results:", result);
     setResult(result);
 
     // Checks for exact match
-    let match = result.some((e) => e.name === searchVal);
+    let matchingItem = result.find((e) => e.name === searchVal);
+    let match = matchingItem !== undefined;
     setMatchExact(match);
 
-    // Updates upc if it exists.
-    // Would be best to find match and upc at same time.
+    // Updates upc and tags if it exists.
     if (match) {
-      setUpc(result.find((e) => e.name === searchVal).upc)
+      setUpc(matchingItem.upc);
+      setTags(matchingItem.tags);
     }
   }
 
   const handleItemLoadFail = (error) => {
     console.log(error);
-    setResult({name: "There was an error."})
+    setResult({name: "There was an error."});
   }
 
   const handleSubmit = (e) => {
     if (searchVal === "") return;  // Empty searchVal probably an accident.
     e.preventDefault();
-    setCanDisplay(true);
+    setCanDisplay(false);
     // Get all items that match search params (name or upc)
     searchItems(searchVal)
       .then(
         (result) => {
           handleItemLoadSuccess(result);
+          setCanDisplay(true);
         },
         (error) => {
           handleItemLoadFail(error);
@@ -51,12 +54,12 @@ function Search() {
   return (
     <div>
       <div className="mx-auto">
-        <h1 className="text-center">Do I own</h1>
+        <h1 className="text-center giant pt-5">Do I own</h1>
       </div>
       <form>
         <div className="input-group mb-3">
           <input 
-            className="form-control"
+            className="form-control underline"
             type="text" 
             placeholder="Enter the name of an item to see if you own it" 
             value={searchVal} 
@@ -73,7 +76,7 @@ function Search() {
         </div>
       </form>
       {canDisplay && <Results present={matchExact} result={result}/>}
-      {canDisplay && <AddItem present={matchExact} name={searchVal} upc={upc} />}
+      {canDisplay && <AddItem present={matchExact} name={searchVal} upc={upc} tags={tags} />}
     </div>
   )
 }
@@ -140,11 +143,23 @@ function PresentDisplay(props) {
 
 function AddItem(props) {
   const [name, setName] = useState(props.name);
-  const [upc, setUpc] = useState(props.upc);
+  // const [upc, setUpc] = useState(props.upc);
+  const [tags, setTags] = useState(props.tags);
 
   let heading = "Would you like to add this item?"
   if (props.present) {
-    heading = "This item seems to already be present. Add it anyways?"
+    heading = "This item seems to already be present. Add another one?"
+  }
+
+  const showToast = (status) => {
+    const toastr = window.toastr;
+    if (status) {
+      const successMessage = "Added item to inventory!" 
+      toastr["success"](successMessage);
+    } else {
+      const failureMessage = "Failed to add item to inventory."
+      toastr["error"](failureMessage);
+    }
   }
 
   const handleSubmit = (e) => {
@@ -156,15 +171,21 @@ function AddItem(props) {
       .then(result => {
         if (result !== null) {  // result.detail only appears if not found (404)
           // item already exists, update
-          console.log("Item found in database.")
-          console.log("Updating existing item.")
-          let updatedItem = {quantity: result.quantity + 1, upc: upc};
-          console.log(updatedItem)
-          updateItem(updatedItem);
+          console.log("Item found in database.");
+          console.log("Updating existing item.");
+          let updatedItem = {
+            name: name, 
+            quantity: result.quantity + 1, 
+            upc: props.upc,
+            tags: tags
+          };
+          console.log(updatedItem);
+          updateItem(updatedItem)
+            .then(status => showToast(status));
         } else {
           // item does not exist, create
-          console.log("Creating new item.")
-          let newItem = {name: name, upc: upc};
+          console.log("Creating new item.");
+          let newItem = {name: name, upc: props.upc};
           console.log(newItem);
           createItem(newItem);
         }
@@ -186,11 +207,11 @@ function AddItem(props) {
               className="form-control"
               type="text" 
               placeholder="Enter a name for the item you are adding"
-              value={name} 
+              defaultValue={props.name} 
               onChange={(e) => setName(e.target.value)}
             />
           </div>
-          <div className="input-group input-group-sm mb-3">
+          {/*<div className="input-group input-group-sm mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">UPC</span>
             </div>
@@ -200,6 +221,22 @@ function AddItem(props) {
               placeholder="(Optional) Enter a upc for the item you are adding."
               value={upc} 
               onChange={(e) => setUpc(e.target.value)}
+            />
+          </div>*/}
+          <div className="input-group input-group-sm mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">Tags</span>
+            </div>
+            <input 
+              className="form-control"
+              type="text" 
+              placeholder="(Optional) Enter comma-separated tags for the item you are adding."
+              defaultValue={props.tags.join(", ")}
+              onChange={e => {
+                let newTags = e.target.value.split(",");
+                newTags = newTags.map(e => e.trim());
+                setTags(newTags);
+              }}
             />
           </div>
           <input 
