@@ -1,7 +1,10 @@
 from django.shortcuts import render
+from django.urls import reverse
 from django.views.generic.list import ListView
-from rest_framework import viewsets, filters, status
-from rest_framework.response import Response
+from django.views.generic.edit import UpdateView
+from rest_framework import viewsets, filters
+from taggit.forms import TagField
+from django import forms
 
 from .models import Item
 from .serializers import ItemSerializer
@@ -30,6 +33,16 @@ class ItemListView(ListView):
                 queryset = queryset.filter(tags__name__icontains=tag)
                 print(queryset)
         return queryset
+
+
+class ItemUpdateView(UpdateView):
+    """Update view to examine and update an individual item."""
+    model = Item
+    template_name_suffix = '_update'
+    fields = ['name', 'upc', 'quantity', 'tags']
+
+    def get_success_url(self):
+        return reverse('inventory')
 
 
 class ItemViewSet(viewsets.ModelViewSet):

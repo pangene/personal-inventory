@@ -105,7 +105,6 @@ function Search() {
               foundSomething={result.length} 
             />
             <ResultsDisplay 
-              className="float-end" 
               name={searchVal} 
               result={result} 
               search={searchThisItem}

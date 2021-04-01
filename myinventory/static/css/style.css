@@ -90,11 +90,7 @@ nav {
   border-radius: 10px;
 }
 
-.left {
-  width: 49%;
-}
-
-.right {
+.side {
   width: 49%;
 }
 
@@ -112,5 +108,8 @@ nav {
 @media only screen and (max-width: 575px) {
   .border {
     border: hidden !important;
+  }
+  .side {
+    width: 100%;
   }
 }

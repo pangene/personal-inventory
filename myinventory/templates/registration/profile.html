@@ -1,13 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="custom-card mx-auto mt-5 max-w-medium">
+  <div class="custom-card mx-auto mt-5">
     <h1>Profile</h1>
     <hr>
-    <p><b>Email:</b> {{ user.email }}</p>
-    <p><b>Date joined:</b> {{ user.date_joined }}</p>
-    <p><b>Inventory size:</b> {{ user.items.count }} items</p>
-    <p><a href="{% url 'password_change' %}">Change password</a></p>
-    <p><a href="{% url 'delete_confirm' %}">Delete account</a></p> 
+    <div class="mb-4 row">
+      <label for="email" class="col-sm-4">Email:</label>
+      <div class="col-sm-8">
+        <span id="email"> {{ user.email }} </span>
+      </div>
+    </div>
+    <div class="mb-4 row">
+      <label for="email" class="col-sm-4">Date joined:</label>
+      <div class="col-sm-8">
+        <span id="email"> {{ user.date_joined }} </span>
+      </div>
+    </div>
+    <div class="mb-4 row">
+      <label for="email" class="col-sm-4">Inventory size:</label>
+      <div class="col-sm-8">
+        <span id="email"> {{ user.items.count }} </span>
+      </div>
+    </div>
+    <p><a class="btn btn-primary" href="{% url 'password_change' %}">Change password</a></p>
+    <p><a class="btn btn-danger" href="{% url 'delete_confirm' %}">Delete account</a></p> 
   </div>
 {% endblock content %}

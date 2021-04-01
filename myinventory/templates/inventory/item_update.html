@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="custom-card mx-auto mt-5">
+    <h1>{{ object.name }}</h1>
+    <hr>
+    <form novalidate method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="mb-3">
+        <label for="{{ field.html_name }}" class="form-label">{{ field.label }}:</label>
+        <input 
+          type="text" 
+          class="form-control {% if field.errors %} is-invalid {% endif %}" 
+          name="{{ field.html_name }}"
+          value=
+            "{% if field.html_name == 'tags' %}{% for tag in object.tags.all %}{{ tag }}, {% endfor %}{% elif field.html_name == 'upc' %}{% if field.value != 'None' %} {{ field.value }}{% endif %}{% else %}{{ field.value }}{% endif %}"  
+        ></input> 
+        {# Why the word vomit above? It's the fact that logic in strings includes all spaces and tabs... #}
+        {% for error in field.errors %}
+          <div class="invalid-feedback">
+            {{ error }}
+          </div>
+        {% endfor %}
+        </div>
+      {% endfor %}
+      <input type="submit" value="Update">
+    </form>
+  </div>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}

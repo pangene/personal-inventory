@@ -16,7 +16,7 @@ function ResultsDisplay(props) {
   )
 
   return (
-    <div className="right mb-3 float-end">
+    <div className="side mb-3 float-sm-end">
       <div className="list-group">
         <a href="#" className="list-group-item disabled">
           This is what we found:

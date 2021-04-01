@@ -34,7 +34,9 @@
       <tbody>
         {% for item in page_obj %}
           <tr>
-            <td>{{ item.name }}</td>
+            <td>
+              <a href="{% url 'item' pk=item.name %}">{{ item.name }}</a>
+            </td>
             <td>
               {{ item.quantity }}
             </td>
