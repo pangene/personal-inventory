@@ -24,10 +24,11 @@ class ItemListView(ListView):
         tags_query = self.request.GET.get('q_tags')
         if tags_query:
             tags = tags_query.split(",")
+            tags = list(map(lambda x: x.strip(), tags))
             for tag in tags:
-                tag.strip()
+                # Filtering by tags__name__in=[tags list] results in objects with any of the tags.
                 queryset = queryset.filter(tags__name__icontains=tag)
-
+                print(queryset)
         return queryset
 
 

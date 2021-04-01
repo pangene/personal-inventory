@@ -3,6 +3,7 @@
 
 {% block styles %}
   <link rel="stylesheet" type="text/css" href="{% static 'css/item_list.css' %}">
+  <script type="text/javascript" src="{% static 'js/tags.js' %}"></script>
 {% endblock styles %}
 
 {% block content %}
@@ -17,7 +18,7 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-sm">Tags</span>
       </div>
-      <input type="search" class="form-control" aria-labelledby="(Optional) Enter tags separated by commas" name="q_tags" placeholder="(Optional) Enter tags separated by commas" value="{{ request.GET.q_tags }}">    
+      <input type="search" class="form-control" aria-labelledby="(Optional) Enter tags separated by commas" id="tags_input" name="q_tags" placeholder="(Optional) Enter tags separated by commas" value="{{ request.GET.q_tags }}">    
     </div>
   </form>
   <div id="inventory">
@@ -40,7 +41,7 @@
             <td>
               {% if item.tags.all %} 
                 {% for tag in item.tags.all %}
-                  <a href="#" class="badge bg-secondary">{{ tag }}</a>
+                  <a href="#" onclick="addSearchTag('{{ tag }}')" class="badge bg-secondary">{{ tag }}</a>
                 {% endfor %}
               {% else %}
                 <hr>
