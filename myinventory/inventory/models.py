@@ -2,8 +2,13 @@ from django.db import models
 from django.contrib.auth import get_user_model
 
 from taggit.managers import TaggableManager
+from taggit.models import CommonGenericTaggedItemBase, TaggedItemBase
 
 User = get_user_model()
+
+class GenericStringTaggedItem(CommonGenericTaggedItemBase, TaggedItemBase):
+    object_id = models.CharField(max_length=50, verbose_name='Object id', db_index=True)
+
 
 class Item(models.Model):
     user = models.ForeignKey(User,
@@ -14,7 +19,7 @@ class Item(models.Model):
     upc = models.CharField(max_length=12, null=True, blank=True)
     quantity = models.PositiveIntegerField(default=1)
     date_added = models.DateField(auto_now_add=True)
-    tags = TaggableManager()
+    tags = TaggableManager(through=GenericStringTaggedItem)
 
     def __str__(self):
         return self.name

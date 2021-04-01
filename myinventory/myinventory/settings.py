@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Third Party
     'rest_framework',
     'taggit',
+    'taggit_serializer',
 
     # Mine
     'inventory',
