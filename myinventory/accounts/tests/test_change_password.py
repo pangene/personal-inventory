@@ -50,7 +50,7 @@ class PasswordChangeTests(PasswordChangeSetup):
         self.assertContains(self.response, '<button', 2)  # submit + nav
 
 
-class PasswordChangeSuccessTests(PasswordChangeSetup):
+class SuccessfulPasswordChangeTests(PasswordChangeSetup):
     """Tests successfully changing password."""
 
     def setUp(self):
@@ -77,7 +77,7 @@ class PasswordChangeSuccessTests(PasswordChangeSetup):
         self.assertTrue(self.user.check_password(self.new_password))
 
 
-class PasswordChangeInvalidTests(PasswordChangeSetup):
+class InvalidPasswordChangeTests(PasswordChangeSetup):
     """Tests invalid form submissions to password change."""
 
     def setUp(self):
