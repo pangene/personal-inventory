@@ -14,7 +14,13 @@
       <div class="mb-4 row">
         <label for="upc" class="col-sm-2">UPC:</label>
         <div class="col-sm-8">
-          <span id="upc"> {{ object.upc }} </span>
+          <span id="upc">
+            {% if object.upc %}
+              {{ object.upc }}
+            {% else %}
+              <hr class="crossthrough">
+            {% endif %}
+          </span>
         </div>
       </div>
       <div class="mb-4 row">
@@ -27,16 +33,20 @@
         <label for="tags" class="col-sm-2">Tags:</label>
         <div class="col-sm-8">
           <span id="tags">
-            {% for tag in object.tags.all %}
-              {{ tag }}, 
-            {% endfor %}
+            {% if object.tags.all %}
+              {% for tag in object.tags.all %}
+                {{ tag }}, 
+              {% endfor %}
+            {% else %}
+              <hr class="crossthrough">
+            {% endif %}
           </span>
         </div>
       </div>
     </div>
     <form method="post">
       {% csrf_token %}
-      <input class="btn btn-primary mt-3" type="submit" value="Confirm">
+      <input class="btn btn-danger mt-3" type="submit" value="Delete">
     </form>
   </div>
 {% endblock content %}

@@ -103,6 +103,11 @@ body {
   clear: both;
 }
 
+.crossthrough {
+  position: relative;
+  bottom: 5px;
+}
+
 @media only screen and (max-width: 450px) {
   .giant {
     font-size: 60px;

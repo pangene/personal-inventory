@@ -1,14 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { getItem, updateItem, createItem } from '../ItemsApi';
 
 function AddItem(props) {
-  const [name, setName] = useState(props.name);
-  // const [upc, setUpc] = useState(props.upc);
-  const [tags, setTags] = useState(props.tags);
-
   let heading = "Would you like to add this item?"
   if (props.present) {
     heading = "This item seems to already be present. Add another one?"
+  }
+
+  const getInputs = () => {
+    console.log('here')
+    const nameInput = document.getElementById('name-input');
+    const tagsInput = document.getElementById('tags-input');
+    return [nameInput.value, cleanTagsInput(tagsInput.value)];
+  }
+
+  const cleanTagsInput = (tagsInputValue) => {
+    if (tagsInputValue === "") {
+      return [];
+    }
+    let newTags = tagsInputValue.split(",");
+    newTags = newTags.map(e => e.trim());
+    return newTags;
   }
 
   const showToast = (status) => {
@@ -24,6 +36,10 @@ function AddItem(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Name and tags are not states to for props to easily be passed in to
+    // change value and for user to change AddItem fields.
+    let [name, tags] = getInputs();
 
     // Get item with the specific name
     // Necessary b/c matchExact can be incorrect if user changes name in add field!
@@ -45,7 +61,11 @@ function AddItem(props) {
         } else {
           // item does not exist, create
           console.log("Creating new item.");
-          let newItem = {name: name, upc: props.upc};
+          let newItem = {
+            name: name, 
+            upc: props.upc,
+            tags: tags
+          };
           console.log(newItem);
           createItem(newItem);
         }
@@ -67,9 +87,10 @@ function AddItem(props) {
             <input 
               className="form-control"
               type="text" 
+              id="name-input"
               placeholder="Enter a name for the item you are adding"
               defaultValue={props.name} 
-              onChange={(e) => setName(e.target.value)}
+              // onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="input-group input-group-sm mb-3">
@@ -78,14 +99,11 @@ function AddItem(props) {
             </div>
             <input 
               className="form-control"
-              type="text" 
+              type="text"
+              id="tags-input"
               placeholder="(Optional) Enter comma-separated tags for the item you are adding."
               defaultValue={props.tags.join(", ")}
-              onChange={e => {
-                let newTags = e.target.value.split(",");
-                newTags = newTags.map(e => e.trim());
-                setTags(newTags);
-              }}
+              // onChange={(e) => setTags(cleanTagsInput(e.target.value))}
             />
           </div>
           <input 

@@ -98,3 +98,4 @@ class PasswordChangeInvalidTests(PasswordChangeSetup):
         """Password should not change after invalid submission."""
         self.user.refresh_from_db()
         self.assertTrue(self.user.check_password(self.password))
+        

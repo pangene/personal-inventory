@@ -24,6 +24,7 @@ class ItemListView(ListView):
         name_query = self.request.GET.get('q')
         if name_query:
             queryset = queryset.filter(name__icontains=name_query)
+
         tags_query = self.request.GET.get('q_tags')
         if tags_query:
             tags = tags_query.split(",")
@@ -32,7 +33,7 @@ class ItemListView(ListView):
                 # Filtering by tags__name__in=[tags list] results in objects with any of the tags.
                 queryset = queryset.filter(tags__name__icontains=tag)
                 print(queryset)
-        return queryset
+        return queryset.order_by('-date_added')
 
 
 class ItemUpdateView(UpdateView):
@@ -40,7 +41,6 @@ class ItemUpdateView(UpdateView):
     model = Item
     template_name_suffix = '_update'
     fields = ['name', 'upc', 'quantity', 'tags']
-
     success_url = reverse_lazy('inventory')
 
 
@@ -54,6 +54,7 @@ class ItemViewSet(viewsets.ModelViewSet):
     """Viewset so React frontend can interact with items api."""
     serializer_class = ItemSerializer
     filter_backends = [filters.SearchFilter]
+    # search query must contain name or equal upc
     search_fields = ['name', '=upc']
 
     def get_queryset(self):

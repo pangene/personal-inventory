@@ -17,5 +17,6 @@ class ItemSerializer(TaggitSerializer, serializers.ModelSerializer):
         fields = ('user', 'name', 'upc', 'quantity', 'tags')
 
     def create(self, validated_data):
+        # Gets currently authenticated user.
         validated_data['user'] = self.context['request'].user
         return super().create(validated_data)

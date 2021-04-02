@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.utils import timezone
 
 from taggit.managers import TaggableManager
 from taggit.models import CommonGenericTaggedItemBase, TaggedItemBase
@@ -18,8 +19,8 @@ class Item(models.Model):
     name = models.CharField(max_length=100, primary_key=True)
     upc = models.CharField(max_length=12, null=True, blank=True)
     quantity = models.PositiveIntegerField(default=1)
-    date_added = models.DateField(auto_now_add=True)
-    tags = TaggableManager(through=GenericStringTaggedItem)
+    date_added = models.DateTimeField(auto_now_add=True)
+    tags = TaggableManager(through=GenericStringTaggedItem, blank=True)
 
     def __str__(self):
         return self.name
