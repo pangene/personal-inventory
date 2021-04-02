@@ -67,6 +67,7 @@ function Search() {
     setSearchVal(item.name);
     setUpc(item.upc);
     setTags(item.tags);
+    setMatchExact(true);
   }
 
   return (
@@ -102,7 +103,7 @@ function Search() {
           (<div>
             <PresentDisplay 
               present={matchExact} 
-              foundSomething={result.length} 
+              foundSomething={result.length}
             />
             <ResultsDisplay 
               name={searchVal} 

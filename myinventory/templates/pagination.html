@@ -9,7 +9,7 @@
           btn-outline-secondary disabled
         {% endif %}
         ">
-      &laquo; first
+      <i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i>
     </a>
     {# For prev and next, sets the internal next page to 1, although it's unclickable anyways. Django will error otherwise. #}
     <a 
@@ -27,10 +27,10 @@
           btn-outline-secondary disabled
         {% endif %}
         ">
-      previous
+      <i class="fas fa-chevron-left"></i>
     </a>
 
-    <span class="current">
+    <span class="current px-2">
       Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
     </span>
 
@@ -50,7 +50,7 @@
           btn-outline-secondary disabled
         {% endif %}
         ">
-      next
+      <i class="fas fa-chevron-right"></i>
     </a>
     <a href="?page={{ page_obj.paginator.num_pages }}" 
       class="btn 
@@ -60,7 +60,7 @@
           btn-outline-secondary disabled
         {% endif %}
         ">
-      last &raquo;
+      <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i>
     </a>
   </span>
 </div>

@@ -53,6 +53,7 @@ function AddItem(props) {
   }
 
   return (
+    // key allows reloading when searchVal updates
     <div className="card float-none" key={props.name}>
       <div className="card-header">
         {heading}

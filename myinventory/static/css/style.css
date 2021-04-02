@@ -9,14 +9,19 @@
 
 body {
   background-color: var(--secondary-color);
+  margin-bottom: 40px;
 }
 
-nav {
+.bg-purple {
   background-color: var(--primary-color);
 }
 
 .btn {
   border-color: white;
+}
+
+.no-underline {
+  text-decoration: none;
 }
 
 .border {

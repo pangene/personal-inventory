@@ -21,7 +21,10 @@ function PresentDisplay(props) {
   }
 
   return (
-    <div className={"max-h-large side float-sm-start mb-3 card border-" + classModifier}>
+    <div 
+      key={props.present}  // Necessary for reload if selecting from found items
+      className={"max-h-large side float-sm-start mb-3 card border-" + classModifier}
+    >
       <div className={"card-body text-" + classModifier}>
         <div className="giant">{icon}</div>
         <h5 className="card-title">{title}</h5>

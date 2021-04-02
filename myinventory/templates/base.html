@@ -26,10 +26,13 @@
 <body>
   {% block body %}
     {% include "nav.html" %}
-    <div class="container py-2">
+    <div class="container pt-2">
       {% block content %}
       {% endblock content %}      
     </div>
+    <footer class="fixed-bottom bg-dark small py-1 text-center">
+      <a class="text-muted no-underline" href="https://github.com/pangene/personal-inventory" target="_blank">Github <i class="fab fa-github"></i></a>
+    </footer>
   {% endblock body %}
 
   {# bootstrap #}

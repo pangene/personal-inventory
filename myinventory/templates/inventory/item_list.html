@@ -7,7 +7,7 @@
 {% endblock styles %}
 
 {% block content %}
-  <form method="GET" class="py-2">
+  <form method="GET" class="pt-2">
     <div class="input-group">
         <input class="form-control" aria-labelledby="Search for the name of an item" type="search" name="q" placeholder="Search for the name of an item" value="{{ request.GET.q }}">
       <div class="input-group-append">
@@ -22,13 +22,13 @@
     </div>
   </form>
   <div id="inventory">
-    <table class="table table-striped mb-4" align="center">
+    <table class="table table-striped mb-2" align="center">
       <thead class="table-dark">
         <tr>
-          <th width="45%">Name</th>
-          <th>Qty</th>
-          <th>Tags</th>
-          <th>Date Added</th>
+          <th width="55%">Name</th>
+          <th width="10%">Qty</th>
+          <th width="20%">Tags</th>
+          <th width="15%">Date Added</th>
         </tr>
       </thead>
       <tbody>

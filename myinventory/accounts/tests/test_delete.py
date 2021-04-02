@@ -5,12 +5,7 @@ from django.contrib.auth.models import AnonymousUser
 
 from ..views import DeleteDoneView, DeleteConfirmView
 
-
 User = get_user_model()
-
-
-# Note: does not test for not logged in users.
-# Trusting the decorators work fine.
 
 
 class DeleteSetup(TestCase):
@@ -85,3 +80,8 @@ class DeleteDoneTests(DeleteSetup):
         """Deleted user should be logged out after redirect."""
         user = self.response.context.get('user')
         self.assertIsInstance(user, AnonymousUser)
+
+    def test_user_deleted(self):
+        """User should be deleted at this point."""
+        self.user.refresh_from_db()
+        self.assertFalse(self.user.is_active)
