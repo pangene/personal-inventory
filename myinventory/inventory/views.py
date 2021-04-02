@@ -32,7 +32,6 @@ class ItemListView(ListView):
             for tag in tags:
                 # Filtering by tags__name__in=[tags list] results in objects with any of the tags.
                 queryset = queryset.filter(tags__name__icontains=tag)
-                print(queryset)
         return queryset.order_by('-date_added')
 
 

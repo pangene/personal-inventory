@@ -23,10 +23,15 @@ class SetupTests(TestCase):
         # Create items
         self.items = { # 'item name': [tags list]
             "pikachu doll": ['cute', 'doll'],
-            "percy jackson lighting thief": ['book', 'percy jackson'],
+            "percy jackson lightning thief": ['book', 'percy jackson'],
             "Django for dummies": ['book', 'programming', 'learning'],
             "detective pikachu": ['movie', 'kids']
         }
         for name, tags in self.items.items():
             item = Item.objects.create(user=self.user, name=name)
             item.tags.add(*tags)
+
+        # Create a second user
+        self.other_item_name = "<THIS ITEM SHOULDN'T BE VISIBLE>"
+        self.second_user = User.objects.create(email="2@gmail.com")
+        Item.objects.create(user=self.second_user, name=self.other_item_name)
