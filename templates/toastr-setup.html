@@ -1,7 +1,7 @@
 {% load static %}
 
 {# The toastr options setup breaks Sublime's highlighting, so I moved it here. It's also a bit more organized. #}
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'css/toastr.min.css' %}" media="all">
 <script type="text/javascript" src="{% static 'js/toastr.min.js' %}"></script>  
 <script type="text/javascript">

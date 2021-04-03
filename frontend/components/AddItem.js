@@ -67,7 +67,8 @@ function AddItem(props) {
             tags: tags
           };
           console.log(newItem);
-          createItem(newItem);
+          createItem(newItem)
+            .then(status => showToast(status));
         }
       });
   }
