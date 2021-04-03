@@ -30,7 +30,7 @@ function getCookie(name) {
  */
 export const getItem = (name) => {
   return fetch('/api/items/' + name)
-      .then(res => res.json())
+      .then(res => {console.log(res); return res.json()})
       .then(res => {
         if (!res.detail) return res;
         else return null;
