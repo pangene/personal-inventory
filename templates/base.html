@@ -23,6 +23,12 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   {% block styles %}
   {% endblock styles %}
+
+  {% if debug %}
+    <script type="text/javascript">
+      console.log = function() {}
+    </script>
+  {% endif %}
 </head>
 <body>
   {% block body %}

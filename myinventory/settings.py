@@ -29,6 +29,9 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['personalinventorytracker.herokuapp.com']
 
+INTERNAL_IPS = (
+    '127.0.0.1',
+)
 
 # Application definition
 
