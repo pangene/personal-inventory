@@ -26,11 +26,13 @@ DUMMY_SECRET_KEY = '1(!!f*ylo9c$r^t6d0w&uxt*u4815g0ssqh2rhzwnx^#%p27_y'
 SECRET_KEY = config('SECRET_KEY', default=DUMMY_SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = ['personalinventorytracker.herokuapp.com',]
+if DEBUG:
+    ALLOWED_HOSTS += ['127.0.0.1', 'localhost']
 
-INTERNAL_IPS = ('127.0.0.1',)
+INTERNAL_IPS = ['127.0.0.1',]
 
 # Application definition
 
@@ -156,8 +158,8 @@ if DEBUG:
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default=None)
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default=None)
 
 # Taggit config
 
