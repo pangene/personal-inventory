@@ -138,7 +138,7 @@ STATICFILES_DIRS = [
 ]
 
 
-# Accounts stuff
+# Accounts configuration
 
 AUTH_USER_MODEL = 'accounts.EmailUser'  # user model
 LOGIN_REDIRECT_URL = '/'
@@ -158,5 +158,22 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 TAGGIT_CASE_INSENSITIVE = True
 
+# DRF configuration
+
+DEFAULT_RENDERER_CLASSES = (
+    'rest_framework.renderers.JSONRenderer',
+)
+
+if DEBUG:
+    DEFAULT_RENDERER_CLASSES = DEFAULT_RENDERER_CLASSES + (
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    )
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ),
+    'DEFAULT_RENDERER_CLASSES': DEFAULT_RENDERER_CLASSES
+}
 
 django_heroku.settings(locals())
