@@ -6,7 +6,7 @@ This repository is for a learning side-project to develop a personal inventory t
 
 This project uses a hybrid structure, where the React is integrated into the Django project and interacts with the database through a RESTful API made with the Django REST framework. (See Architecture for more detail)
 
-A demo for this project is deployed with Heroku, and is hosted at https://personalinventorytracker.herokuapp.com/.
+A demo for this project is deployed with Heroku, and is hosted at https://personalinventorytracker.herokuapp.com/. (Note that Heroku sleeps inactive apps, so it may take a while to initially load.)
 
 ## Installation
 
