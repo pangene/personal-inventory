@@ -8,7 +8,7 @@ This project uses a hybrid structure, where the React is integrated into the Dja
 
 A demo for this project is deployed with Heroku, and is hosted at https://personalinventorytracker.herokuapp.com/. (Note that Heroku sleeps inactive apps, so it may take a while to initially load.)
 
-![GIF of Landing Page](https://github.com/pangene/personal-inventory/blob/master/readme_images/landing.gif)
+![GIF of Landing Page](https://github.com/pangene/personal-inventory/blob/main/README_Images/landing.gif)
 
 ## Installation
 
