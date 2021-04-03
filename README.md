@@ -22,25 +22,26 @@ For hosting on your local machine, follow these instructions on your terminal:
 
 `> cd personal-inventory`
 
-3. Install the necessary python packages with
+3. Set up a virtual environment and install the necessary python packages with
 
 ```
 > python -m venv venv
 > source venv/bin/activate    <-- Note activating virtual envs on Windows is different
 > pip install -r requirements.txt
 ```
-Note that the first two steps just set up a virtual environment, and are optional.
 
-4. Install the necessary node packages with
+4. (Optional) Install the necessary node packages with
 
 `> npm install`
 
 5. Run the following commands to prepare the project
 
 ```
-> npm run dev   <-- Bundles into index-bundle.js in static folder. Optionally, npm run build to bundle for production.
+> (Optional) npm run dev   <-- Bundles into index-bundle.js in static folder.
 > python manage.py migrate
 ```
+
+Note that running `npm run dev` is optional, since index-bundle.js is already included for the heroku repo. But, if you make any updates to the frontend, `npm run dev` must be run to see changes. To bundle for production, run `npm run build` instead.
 
 6. Start the server with
 
