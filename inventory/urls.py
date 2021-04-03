@@ -13,6 +13,6 @@ urlpatterns = [
 
 # REST framework for the React home page.
 router = routers.DefaultRouter()
-router.register(r'api/items/', ItemViewSet, basename='Item')
+router.register(r'api/items', ItemViewSet, basename='Item')
 
 urlpatterns += router.urls
