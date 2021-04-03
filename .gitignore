@@ -145,3 +145,7 @@ node_modules/
 
 # Linter config
 .eslintrc.js
+
+# Javascript build artifacts
+index-bundle.js
+index-bundle.js.LICENSE.txt
