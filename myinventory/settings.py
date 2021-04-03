@@ -22,16 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+DUMMY_SECRET_KEY = '1(!!f*ylo9c$r^t6d0w&uxt*u4815g0ssqh2rhzwnx^#%p27_y'
+SECRET_KEY = config('SECRET_KEY', default=DUMMY_SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['personalinventorytracker.herokuapp.com']
+ALLOWED_HOSTS = ['personalinventorytracker.herokuapp.com',]
 
-INTERNAL_IPS = (
-    '127.0.0.1',
-)
+INTERNAL_IPS = ('127.0.0.1',)
 
 # Application definition
 
@@ -151,6 +150,9 @@ LOGOUT_REDIRECT_URL = '/'
 # Email configuration
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+if DEBUG:
+    # Development sends emails to console
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
